@@ -1,0 +1,32 @@
+<body ng-app="myApp" ng-controller="myCtrl">
+
+    <button (click)="gameStart(); ShowDiv('A')">START</button>
+
+    <div *ngIf="currDiv == 'A'">
+        <button (click)="diceVal()">ROLL</button>
+        <p>Previous ROLL : {{ rndInt }}</p>
+        <div *ngIf="i==1">Player GREEN Turn.</div>
+        <div *ngIf="i==2">Player RED Turn.</div>
+        <div *ngIf="i==3">Player BLUE Turn.</div>
+        <div *ngIf="i==4">Player YELLO Turn.</div>
+        <!-- <p>Player 1</p> {{Player1.count}}<br>
+        <p>Player 2</p>  {{Player2.count}}<br>
+        <p>Player 3</p>  {{Player3.count}}<br>
+        <p>Player 4</p>  {{Player4.count}}<br> -->
+    </div>
+    <h1>
+      {{winner}}
+    </h1>
+	<table>
+        <tbody>
+          <tr *ngFor="let row of [1,2,3,4,5,6,7,8]">
+            <td *ngFor="let cell of [1,2,3,4,5,6,7,8]" >
+                <p *ngIf="row == Player1.currRow && cell == Player1.currCol">G</p>
+                <p *ngIf="row == Player2.currRow && cell == Player2.currCol">R</p>
+                <p *ngIf="row == Player3.currRow && cell == Player3.currCol">B</p>
+                <p *ngIf="row == Player4.currRow && cell == Player4.currCol">Y</p>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+</body>
